@@ -4,19 +4,19 @@ Tan, tan, tan!
 
 The ultimate tool for developers who dont use the mouse
 
-Keep track of everything using the Dev-Commande, just download this script into a folder and start creating issues.
+Keep track of everything using the Dev-Commander, just download this script into a folder and start creating issues.
 
 ### Minimun requirements
 
-- A Linux Console
-- Know how to use VIM
-- Know about Regex
+- A Linux Console (Real developers use Linux... or at least git bash)
+- Know how to use VIM (Any real developer uses VIM)
+- Know about Regexes (Yeah, we assume you know about this) 
 
 ###  Cool Features
 
-- Simple menu just 2 options state of the art menu. Do or Go Back
+- State or the art UX experience. A Simple bioptional state of the art menu (this means just 2 options)
 - No overcomplicated drag-drop functionallity
-- A tool to the point, no need to 
+- A tool to the point, no need to learn how to do stuff with a mouse.
 
 ### Issue template Crash Course
 
