@@ -14,8 +14,8 @@ Keep track of everything using the Dev-Commander, just download this script into
 
 ###  Cool Features
 
-- State or the art UX experience. A Simple bioptional state of the art menu (this means just 2 options)
-- No overcomplicated drag-drop functionallity
+- State or the art UX. A Simple bioptional menu. This means just 2 options.
+- No overcomplicated drag-drop functionallity.
 - A tool to the point, no need to learn how to do stuff with a mouse.
 
 ### Issue template Crash Course
