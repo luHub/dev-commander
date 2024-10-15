@@ -28,7 +28,7 @@ Keep track of everything using the Dev-Commander, just download this script into
 
 #### Example
 
-Issue] Issue-445
+[Issue] Issue-445
 
 [Date] Wed 14 Oct 23:22:31 CEST 2020
 
