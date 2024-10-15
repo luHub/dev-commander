@@ -37,11 +37,11 @@ function create_issue {
   create_header "Create new issue"
   read -p "  Name:" issue_name
   read -p "  URL:" issue_url
-  issue_file="issues/$issue_name/$issue_name.txt"
+  issue_file="issues/$issue_name/$issue_name.dnote"
   mkdir "issues/$issue_name"
   touch $issue_file
-  echo '[Issue]' $issue_name &>> $issue_file
-  echo '[Date]' $(date) &>> $issue_file
+  echo '[ISSUE]' $issue_name &>> $issue_file
+  echo '[DATE]' $(date) &>> $issue_file
   echo '[URL]' $issue_url &>> $issue_file
   echo '[STATUS] TODO' &>> $issue_file 
   echo "" &>> $issue_file
@@ -49,7 +49,7 @@ function create_issue {
   echo "" &>> $issue_file
   echo  
   echo
-  echo '[Analysis]' &>> $issue_file
+  echo '[ANALYSIS]' &>> $issue_file
   echo
   echo "  Succesfully Created file! You can start writing on it!"
   echo
@@ -71,11 +71,11 @@ function open_issue {
   for entry in "$(pwd)/issues"/*
   do
     local file_name=$(basename $entry) 
-    local status=$(grep "\[STATUS\] .*" issues/$file_name/$file_name.txt)
+    local status=$(grep "\[STATUS\] .*" issues/$file_name/$file_name.dnote)
     if [ "$status" == "[STATUS] $1" ]; then	  
       local file_name=$(basename $entry)
       issues+="$file_name"      
-      echo "  $file_name  $(grep "\[STATUS\] .*" issues/$file_name/$file_name.txt)"
+      echo "  $file_name  $(grep "\[STATUS\] .*" issues/$file_name/$file_name.dnote)"
       count=$count+1
     fi
   done
@@ -93,7 +93,7 @@ function open_issue {
    if [ "$open_issue" == "r" ]; then 
      return
    elif [[ " $issues{[@]} " =~ "$open_issue" ]]; then 
-     vim "issues/$open_issue/$open_issue.txt"
+     vim "issues/$open_issue/$open_issue.dnote"
    else
      clear	   
      echo	   
@@ -119,7 +119,7 @@ function find_issue {
    do
       entry=${entry/"\n"/""}
       entry=$(sed -r 's/(.*)\/(.*)\/(.*)/\3/' <<<  "$entry")
-      issues_validation+=($(sed -r s/".txt".*/""/g <<< "$entry"))
+      issues_validation+=($(sed -r s/".dnote".*/""/g <<< "$entry"))
       entry=${entry/".txt"/""}
       echo "  $entry"
   done
@@ -135,7 +135,7 @@ function find_issue {
   if [ "$issue" == "r" ]; then 
      return
    elif [[ "${issues_validation[@]}" =~ "$issue" ]]; then 
-     vim "issues/$issue/$issue.txt"
+     vim "issues/$issue/$issue.dnote"
    else
      clear	   
      echo	   
@@ -172,8 +172,3 @@ do
    sleep 1
  fi
 done
-
-
-
-
-
