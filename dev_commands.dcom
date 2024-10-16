@@ -1,5 +1,7 @@
 #Linux
+
 grep -r [pattern] [directory]
+find [directory] -name [name]
 
 #Git
 git clone [repository]
