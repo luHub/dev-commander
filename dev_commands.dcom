@@ -2,6 +2,7 @@
 
 grep -r [pattern] [directory]
 find [directory] -name [name]
+find [directory] -name [name] | xargs less
 
 #Git
 git clone [repository]
