@@ -1,8 +1,14 @@
 #Linux
-
 grep -r [pattern] [directory]
 find [directory] -name [name]
 find [directory] -name [name] | xargs less
 
 #Git
 git clone [repository]
+git fetch 
+git status
+git checkout -b [branch-name]
+
+#Docker
+
+#Podman
