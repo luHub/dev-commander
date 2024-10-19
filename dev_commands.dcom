@@ -8,7 +8,12 @@ git clone [repository]
 git fetch 
 git status
 git checkout -b [branch-name]
+git diff
+
+#Git Config
+
 
 #Docker
+
 
 #Podman
