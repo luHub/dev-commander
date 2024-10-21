@@ -11,9 +11,6 @@ git checkout -b [branch-name]
 git diff
 
 #Git Config
-
-
 #Docker
-
-
 #Podman
+#Pgp
