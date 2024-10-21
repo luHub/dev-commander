@@ -1,7 +1,13 @@
-#Linux
+#Linux Files
 grep -r [pattern] [directory]
 find [directory] -name [name]
 find [directory] -name [name] | xargs less
+
+#Linux Networking
+ping
+ipconfig
+traceroute
+nslookup
 
 #Git
 git clone [repository]
@@ -11,6 +17,8 @@ git checkout -b [branch-name]
 git diff
 
 #Git Config
+
+
 #Docker
 #Podman
 #Pgp
