@@ -16,6 +16,9 @@ git status
 git checkout -b [branch-name]
 git diff
 
+#Git Merges
+git checkout --theirs [files]
+
 #Git Config
 
 
