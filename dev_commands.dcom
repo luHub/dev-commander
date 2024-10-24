@@ -21,6 +21,8 @@ git checkout --theirs [files]
 
 #Git Config
 
+#Git Commit
+git commit --no-verify  -am
 
 #Docker
 #Podman
