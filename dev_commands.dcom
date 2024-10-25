@@ -20,6 +20,7 @@ git diff
 git branch -r
 git fetch --all
 git checkout --theirs [files]
+git checkout -b [local_branch] [origin/remote_branch]
 
 #Git Config
 
