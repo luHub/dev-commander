@@ -17,6 +17,7 @@ git checkout -b [branch-name]
 git diff
 
 #Git Merges
+git fetch --all
 git checkout --theirs [files]
 
 #Git Config
