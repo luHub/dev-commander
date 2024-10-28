@@ -31,3 +31,5 @@ git commit --no-verify  -am
 #Docker
 #Podman
 #Pgp
+#Maven
+#Java
