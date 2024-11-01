@@ -33,3 +33,7 @@ git commit --no-verify  -am
 #Pgp
 #Maven
 #Java
+#Terraform
+terraform init
+terraform plan
+terraform import 
