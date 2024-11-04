@@ -31,12 +31,13 @@ while(<FH>){
   @input=($_=~/(\[.*?\])/g);
   my @bday = check_birthday(@input); 
   if(exists $calendar{$bday[$month]}){
-	  my @ca = $calendar{$bday[$month]};
-	  push(@ca,(\@bday));
-          $calendar{$bday[$month]}=\@ca;
+	  my @ca = $calendar{$bday[$month]}->@*;
+	  push(@ca,\@bday);
+	  @ca = sort{ $a->[3] cmp $b->[3] } @ca;
+	  $calendar{$bday[$month]}=\@ca;
   } else {
    my @month = ();	  
-   push(@month,@bday);
+   push(@month,\@bday);
    $calendar{$bday[$month]}=\@month;
   }
 }
@@ -71,5 +72,3 @@ sub generate_calendar {
    }
   }
 }
-
-
