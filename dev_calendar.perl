@@ -33,7 +33,7 @@ while(<FH>){
   if(exists $calendar{$bday[$month]}){
 	  my @ca = $calendar{$bday[$month]}->@*;
 	  push(@ca,\@bday);
-	  @ca = sort{ $a->[3] cmp $b->[3] } @ca;
+	  @ca = sort{ $a->[$day] cmp $b->[$day] } @ca;
 	  $calendar{$bday[$month]}=\@ca;
   } else {
    my @month = ();	  
