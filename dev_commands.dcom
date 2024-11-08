@@ -37,3 +37,5 @@ git commit --no-verify  -am
 terraform init
 terraform plan
 terraform import 
+#AWS
+aws sqs receive-message --queue-url [URL] --attribute-names All --message-attribute-names All --max-number-of-messages [MAX_NUM]
