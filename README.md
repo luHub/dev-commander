@@ -54,7 +54,7 @@ Sometimes you need to have appointments for a "social cause" like birthdays but 
 
 ```
 [B][Month][Date] #For Birthdates
-[A][Year][Month][Date][Hour][Minute] #We include the year for the ones that like to plan life in 5 to 10 years in advance including dinners and going to the movies. 
+[A][Year][Month][Date][Hour][Minute] #We include the year for the ones that like to plan life from 5 to 10 years in advance including dinners, going to the movies, and having babies. 
 ```
 
 #### Run the calendar in standard mode:
