@@ -27,8 +27,12 @@ git branch -d [local_branch]
 #Git Commit
 git commit --no-verify  -am
 
-#Docker
+#Docker 
+docker build
 #Podman
+podman build
+
+
 #Pgp
 #Maven
 #Java
