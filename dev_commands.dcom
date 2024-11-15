@@ -14,6 +14,7 @@ git clone [repository]
 git fetch 
 git status
 git checkout -b [branch-name]
+git checkout [source_branch] [file_path]
 git diff
 
 #Git Merges
@@ -22,8 +23,6 @@ git fetch --all
 git checkout --theirs [files]
 git checkout -b [local_branch] [origin/remote_branch]
 git branch -d [local_branch]
-
-#Git Config
 
 #Git Commit
 git commit --no-verify  -am
