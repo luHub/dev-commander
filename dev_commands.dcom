@@ -29,6 +29,7 @@ git commit --no-verify  -am
 
 #Docker
 sudo service docker start
+docker run
 docker build
 docker container ps
 #Podman
