@@ -29,6 +29,7 @@ git commit --no-verify  -am
 
 #Docker 
 docker build
+docker container ps
 #Podman
 podman build
 
