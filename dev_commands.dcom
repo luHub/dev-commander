@@ -27,7 +27,8 @@ git branch -d [local_branch]
 #Git Commit
 git commit --no-verify  -am
 
-#Docker 
+#Docker
+sudo service docker start
 docker build
 docker container ps
 #Podman
