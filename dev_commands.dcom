@@ -47,3 +47,4 @@ terraform import
 #AWS
 aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
 aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
+aws ecr get-login-password --region [aws_region] | docker login --username AWS --password-stdin [aws_account_id].dkr.ecr.region.amazonaws.com
