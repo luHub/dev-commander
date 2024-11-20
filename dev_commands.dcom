@@ -43,5 +43,7 @@ podman ls
 terraform init
 terraform plan
 terraform import 
+
 #AWS
-aws sqs receive-message --queue-url [URL] --attribute-names All --message-attribute-names All --max-number-of-messages [MAX_NUM]
+aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
+aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
