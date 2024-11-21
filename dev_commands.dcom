@@ -23,6 +23,7 @@ git fetch --all
 git checkout --theirs [files]
 git checkout -b [local_branch] [origin/remote_branch]
 git branch -d [local_branch]
+git branch -D [local_branch]
 
 #Git Commit
 git commit --no-verify  -am
