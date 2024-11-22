@@ -31,6 +31,7 @@ sudo service docker start
 docker run
 docker build
 docker container ps
+docker image prune
 #Podman
 podman build
 podman ls
