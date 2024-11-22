@@ -37,9 +37,14 @@ podman build
 podman ls
 podman system prune
 
-#Pgp
+#PGP
+
 #Maven
+mvn clean install
+
 #Java
+java --version
+
 #Terraform
 terraform init
 terraform plan
