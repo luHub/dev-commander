@@ -34,6 +34,7 @@ docker container ps
 #Podman
 podman build
 podman ls
+podman system prune
 
 #Pgp
 #Maven
