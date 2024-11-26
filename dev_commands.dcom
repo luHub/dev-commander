@@ -1,13 +1,14 @@
-#Linux Files
-grep -r [pattern] [directory]
-find [directory] -name [name]
-find [directory] -name [name] | xargs less
+#AWS
+aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
+aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
+aws ecr get-login-password --region [aws_region] | docker login --username AWS --password-stdin [aws_account_id].dkr.ecr.region.amazonaws.com
 
-#Linux Networking
-ping
-ipconfig
-traceroute
-nslookup
+#Docker
+sudo service docker start
+docker run
+docker build
+docker container ps
+docker image prune
 
 #Git
 git branch -d [local_branch]
@@ -26,32 +27,36 @@ git merge [local_branch]
 git push -u origin [branch]
 git status
 
-#Docker
-sudo service docker start
-docker run
-docker build
-docker container ps
-docker image prune
+#Java
+java --version
+
+
+#Linux Files
+grep -r [pattern] [directory]
+find [directory] -name [name]
+find [directory] -name [name] | xargs less
+
+#Linux Networking
+ping
+ipconfig
+traceroute
+nslookup
+
+#Maven
+mvn clean install
+
+#PGP
+
+
 #Podman
 podman build
 podman ls
 podman system prune
 
-#PGP
-
-#Maven
-mvn clean install
-
-#Java
-java --version
 
 #Terraform
 terraform init
 terraform plan
 terraform import 
 
-#AWS
-aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
-aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
-aws ecr get-login-password --region [aws_region] | docker login --username AWS --password-stdin [aws_account_id].dkr.ecr.region.amazonaws.com
 
