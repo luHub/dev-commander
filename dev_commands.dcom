@@ -1,3 +1,7 @@
+#AWK
+awk '{ print substr( $0, 1, length($0)-2 ) }' 
+awk '!seen[$0]++'
+
 #AWS
 aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
 aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
