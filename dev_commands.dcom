@@ -34,6 +34,8 @@ git status
 #Java
 java --version
 
+#Linux System
+tail -f /var/log/syslog
 
 #Linux Files
 grep -r [pattern] [directory]
