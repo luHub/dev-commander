@@ -41,6 +41,7 @@ tail -f /var/log/syslog
 grep -r [pattern] [directory]
 find [directory] -name [name]
 find [directory] -name [name] | xargs less
+cat [file1] [file2] >> file3 
 
 #Linux Networking
 ping
