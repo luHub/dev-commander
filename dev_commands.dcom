@@ -1,6 +1,7 @@
 #AWK
 awk '{ print substr( $0, 1, length($0)-2 ) }' 
 awk '!seen[$0]++'
+awk '{print substr($0, 1, length($0)-1) ";" substr($0, length($0), 1)}' filename > newfile
 
 #AWS
 aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
