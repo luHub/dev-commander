@@ -38,17 +38,19 @@ java --version
 #Linux System
 tail -f /var/log/syslog
 
+
 #Linux Files
-grep -r [pattern] [directory]
+cat [file1] [file2] >> file3 
 find [directory] -name [name]
 find [directory] -name [name] | xargs less
-cat [file1] [file2] >> file3 
+grep -r [pattern] [directory]
 
 #Linux Networking
-ping
 ipconfig
-traceroute
 nslookup
+ping
+traceroute
+telnet [host] [port]
 
 #Maven
 mvn clean install
