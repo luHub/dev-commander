@@ -36,6 +36,8 @@ git status
 java --version
 
 #Linux System
+date
+date +%s
 tail -f /var/log/syslog
 
 
