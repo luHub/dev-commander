@@ -55,6 +55,9 @@ telnet [host] [port]
 #Maven
 mvn clean install
 
+#Parquet
+parquet-tools 
+
 #PGP
 
 
