@@ -29,6 +29,7 @@ git diff
 git fetch 
 git fetch --all
 git merge [local_branch]
+git log [branch]
 git push -u origin [branch]
 git pull
 git pull upstream master
