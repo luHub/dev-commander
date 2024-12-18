@@ -55,6 +55,7 @@ grep -r [pattern] [directory]
 ipconfig
 nslookup
 ping
+openssl s_cleint -verify 2 -connect [domain]:[port] -tls1_2 -debug   
 traceroute
 telnet [host] [port]
 
