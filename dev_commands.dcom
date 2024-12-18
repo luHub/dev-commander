@@ -65,8 +65,6 @@ mvn clean install
 #Parquet
 parquet-tools 
 
-#PGP
-
 
 #Podman
 podman build
