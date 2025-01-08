@@ -59,6 +59,9 @@ openssl s_cleint -verify 2 -connect [domain]:[port] -tls1_2 -debug
 traceroute
 telnet [host] [port]
 
+#Linux Processes
+ps -eaf 
+
 #Maven
 mvn clean install
 
