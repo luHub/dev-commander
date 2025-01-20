@@ -40,17 +40,19 @@ git status
 #Java
 java --version
 
-#Linux System
-date
-date +%s
-tail -f /var/log/syslog
-
+#Linux Env
+export [name]=[value]
 
 #Linux Files
 cat [file1] [file2] >> file3 
 find [directory] -name [name]
 find [directory] -name [name] | xargs less
 grep -r [pattern] [directory]
+
+#Linux System
+date
+date +%s
+tail -f /var/log/syslog
 
 #Linux Networking
 ipconfig
