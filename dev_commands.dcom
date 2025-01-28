@@ -65,7 +65,8 @@ sudo netstat -lntp | grep dockerd
 
 
 #Linux Processes
-ps -eaf 
+ps -eaf
+systemctl [start|stop|restart] [pattern...|pid...]
 
 #Maven
 mvn clean install
