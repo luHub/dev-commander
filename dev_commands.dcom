@@ -79,6 +79,9 @@ parquet-tools
 podman build
 podman ls
 podman system prune
+systemctl --user status  podman.socket
+systemctl --user status  podman.service
+
 
 
 #Terraform
