@@ -89,4 +89,6 @@ terraform init
 terraform plan
 terraform import 
 
-
+#sqlite
+sqlite [DB_FILE]
+sqlite >> .tables
