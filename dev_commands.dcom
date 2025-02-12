@@ -35,7 +35,8 @@ git push -u origin [branch]
 git pull
 git pull upstream master
 git status
-
+git stash 
+git reset --hard [origin/remote_branch]
 
 #Java
 java --version
