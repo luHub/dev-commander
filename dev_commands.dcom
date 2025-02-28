@@ -20,7 +20,7 @@ git branch -d [local_branch]
 git branch -D [local_branch]
 git branch -r
 git checkout -b [local_branch] [origin/remote_branch]
-git checkout -b [branch-name]
+git checkout -b [branch_name]
 git checkout [source_branch] [file_path]
 git checkout --theirs [files]
 git clone [repository]
@@ -33,10 +33,13 @@ git merge [upstream/remote_branch]
 git log [branch]
 git push -u origin [branch]
 git pull
+git pull --rebase
 git pull upstream master
 git status
 git stash 
 git reset --hard [origin/remote_branch]
+git cherry-pick [commit_id]
+git cherry-pick --abort 
 
 #Java
 java --version
