@@ -83,6 +83,7 @@ parquet-tools
 podman build
 podman image ls
 podman run [repository]
+porman run --name [name] -p [port:port] [repository]
 podman system prune
 systemctl --user status  podman.socket
 systemctl --user status  podman.service
