@@ -85,6 +85,7 @@ podman image ls
 podman run [repository]
 porman run --name [name] -p [port:port] [repository]
 podman system prune
+podman system prune --all --force && podman rmi --all --force
 systemctl --user status  podman.socket
 systemctl --user status  podman.service
 
