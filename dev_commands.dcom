@@ -86,6 +86,7 @@ podman run [repository]
 porman run --name [name] -p [port:port] [repository]
 podman system prune
 podman system prune --all --force && podman rmi --all --force
+podman exec -it [container] /bin/bash
 systemctl --user status  podman.socket
 systemctl --user status  podman.service
 
