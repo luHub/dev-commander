@@ -104,7 +104,7 @@ terraform workspace
 terraform workspace list
 terraform workspace select [name]
 TF_LOG=DEBUG TF_LOG_PATH=[path] terraform plan
-
+terraform fmt
 
 #sqlite
 sqlite [DB_FILE]
