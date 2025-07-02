@@ -96,6 +96,12 @@ systemctl --user status  podman.service
 terraform init
 terraform plan
 terraform import 
+terraform workspace show
+terraform workspace 
+terraform workspace list
+terraform workspace select [Name]
+
+
 
 #sqlite
 sqlite [DB_FILE]
