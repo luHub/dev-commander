@@ -102,8 +102,8 @@ terraform import
 terraform workspace show
 terraform workspace 
 terraform workspace list
-terraform workspace select [Name]
-
+terraform workspace select [name]
+TF_LOG=DEBUG TF_LOG_PATH=[path] terraform plan
 
 
 #sqlite
