@@ -6,7 +6,11 @@ awk '{print substr($0, 1, length($0)-1) ";" substr($0, length($0), 1)}' filename
 #AWS
 aws sqs receive-message --queue-url [url] --attribute-names All --message-attribute-names All --max-number-of-messages [max_num]
 aws ecr describe-repositories --profile [aws_profile] --region [aws_region]
+aws ecs execute-command --region [aws_region] --cluster [aws_cluster] --task [aws_ecs_task] --container [aws_ecs_task_container] --interactive --command "/bin/sh" 
 aws ecr get-login-password --region [aws_region] | docker login --username AWS --password-stdin [aws_account_id].dkr.ecr.region.amazonaws.com
+aws ecs list-clusters --region [aws_region]
+aws ecs list-tasks --region [aws_region]  --cluster [aws_ecs_cluster] 
+
 
 #Docker
 sudo service docker start
