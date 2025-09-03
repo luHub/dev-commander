@@ -89,7 +89,9 @@ parquet-tools
 
 #Podman
 podman build
+podman container start [id]
 podman image ls
+podman ps
 podman run [repository]
 porman run --name [name] -p [port:port] [repository]
 podman system prune
