@@ -19,8 +19,11 @@ docker build
 docker container ps
 docker image prune
 
-#GC
+#GCP
 gcloud auth application-default login
+gcloud init
+gcloud info
+gcloud container cluster list
 
 #Git
 git branch -d [local_branch]
