@@ -23,7 +23,7 @@ docker image prune
 gcloud auth application-default login
 gcloud init
 gcloud info
-gcloud container cluster list
+gcloud container clusters list
 
 #Git
 git branch -d [local_branch]
