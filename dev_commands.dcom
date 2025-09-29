@@ -58,7 +58,7 @@ java --version
 
 # Kubernetes
 kubectl get --all-namespaces all
-
+kubectl get serviceAccounts
 
 #Linux Env
 export [name]=[value]
