@@ -56,6 +56,10 @@ git cherry-pick --abort
 #Java
 java --version
 
+# Kubernetes
+kubectl get --all-namespaces all
+
+
 #Linux Env
 export [name]=[value]
 
