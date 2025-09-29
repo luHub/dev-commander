@@ -1,6 +1,11 @@
 # GCP Troubleshooting/Checking
 
- # IAM 
- # GKE 
- # Secret Manager 
+# IAM 
+# GKE 
+## Check Kubernetes Service Account
+-
+-
+
+
+# Secret Manager 
   
