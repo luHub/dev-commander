@@ -21,6 +21,7 @@ docker image prune
 
 #GCP
 gcloud auth application-default login
+gcloud auth login
 gcloud init
 gcloud info
 gcloud container clusters list
