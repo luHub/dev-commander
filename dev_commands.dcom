@@ -45,6 +45,7 @@ gcloud compute firewall-rules create www-firewall-network-lb \
 gcloud compute instances list
 gcloud compute addresses create network-lb-ip-1 \
   --region us-central1
+gcloud compute http-health-checks create basic-check
 
 #Git
 git branch -d [local_branch]
