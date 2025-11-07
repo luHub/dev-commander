@@ -54,6 +54,9 @@ git reset --hard [origin/remote_branch]
 git cherry-pick [commit_id]
 git cherry-pick --abort 
 
+#Google Cloud
+gcloud auth list
+
 #Java
 java --version
 
