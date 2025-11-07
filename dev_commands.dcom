@@ -46,6 +46,15 @@ gcloud compute instances list
 gcloud compute addresses create network-lb-ip-1 \
   --region us-central1
 gcloud compute http-health-checks create basic-check
+gcloud compute target-pools create www-pool \
+  --region us-central1 --http-health-check basic-check
+gcloud compute target-pools add-instances www-pool \
+    --instances www1,www2,www3
+gcloud compute forwarding-rules create www-rule \
+    --region  us-central1 \
+    --ports 80 \
+    --address network-lb-ip-1 \
+    --target-pool www-pool
 
 #Git
 git branch -d [local_branch]
