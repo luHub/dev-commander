@@ -133,6 +133,7 @@ gcloud compute instance-groups managed create backend \
 gcloud compute firewall-rules create http --network default --allow=tcp:80 \
 --source-ranges 10.150.0.0/20 --target-tags backend
 
+gcloud compute health-checks create http ilb-health --request-path /2
 
 #In GKE Console
 sudo apt-get install -y virtualenv
