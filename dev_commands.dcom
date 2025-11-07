@@ -55,6 +55,8 @@ gcloud compute forwarding-rules create www-rule \
     --ports 80 \
     --address network-lb-ip-1 \
     --target-pool www-pool
+gcloud compute forwarding-rules describe www-rule --region us-central1
+
 
 #Git
 git branch -d [local_branch]
