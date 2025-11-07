@@ -113,6 +113,32 @@ gcloud compute backend-services add-backend web-backend-service \
 gcloud compute url-maps create web-map-http \
     --default-service web-backend-service
 
+gcloud compute target-http-proxies create http-lb-proxy \
+    --url-map web-map-http
+
+gcloud compute forwarding-rules create http-content-rule \
+   --address=lb-ipv4-1\
+   --global \
+   --target-http-proxy=http-lb-proxy \
+   --ports=80
+
+gcloud config set compute/region us-east4
+gcloud config set compute/zone us-east4-b
+
+gcloud compute instance-groups managed create backend \
+--size 3 \
+--template primecalc \
+--zone us-east4-b
+
+gcloud compute firewall-rules create http --network default --allow=tcp:80 \
+--source-ranges 10.150.0.0/20 --target-tags backend
+
+
+#In GKE Console
+sudo apt-get install -y virtualenv
+python3 -m venv venv
+source venv/bin/activate
+
 
 
 #Git
