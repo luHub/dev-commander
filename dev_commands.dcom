@@ -43,6 +43,8 @@ gcloud compute instances create [name] \
 gcloud compute firewall-rules create www-firewall-network-lb \
     --target-tags network-lb-tag --allow tcp:80
 gcloud compute instances list
+gcloud compute addresses create network-lb-ip-1 \
+  --region us-central1
 
 #Git
 git branch -d [local_branch]
