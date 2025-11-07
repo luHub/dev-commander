@@ -29,8 +29,17 @@ gcloud init
 gcloud info
 gcloud container clusters list
 gcloud components install kubectl
-
-
+  gcloud compute instances create [name] \
+    --zone=[zone] \
+    --tags=[network-tag] \
+    --machine-type=[machine_type] \
+    --image-family=[image_family] \
+    --image-project=[image_project] \
+    --metadata=startup-script='#!/bin/bash \
+      apt-get update \
+      apt-get install apache2 -y \
+      service apache2 restart \
+      echo "<h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
 
 #Git
 git branch -d [local_branch]
