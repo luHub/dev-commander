@@ -140,6 +140,48 @@ sudo apt-get install -y virtualenv
 python3 -m venv venv
 source venv/bin/activate
 
+gcloud compute instance-groups managed create backend \
+--size 3 \
+--template primecalc \
+--zone us-east4-b
+
+gcloud compute firewall-rules create http --network default --allow=tcp:80 \
+--source-ranges 10.150.0.0/20 --target-tags backend
+
+
+
+gcloud compute backend-services create prime-service \
+--load-balancing-scheme internal --region=us-east4 \
+--protocol tcp --health-checks ilb-health
+
+
+gcloud compute backend-services add-backend prime-service \
+--instance-group backend --instance-group-zone=us-east4-b \
+--region=us-east4
+
+
+gcloud compute forwarding-rules create prime-lb \
+--load-balancing-scheme internal \
+--ports 80 --network default \
+--region=us-east4 --address 10.150.0.10 \
+--backend-service prime-service
+
+
+gcloud compute instances create testinstance \
+--machine-type=e2-standard-2 --zone us-east4-b
+
+gcloud compute ssh testinstance --zone us-east4-b
+
+gcloud compute instances delete testinstance --zone=us-east4-b
+
+gcloud compute instances create frontend --zone=us-east4-b \
+--metadata-from-file startup-script=frontend.sh \
+--tags frontend --machine-type=e2-standard-2
+
+
+gcloud compute firewall-rules create http2 --network default --allow=tcp:80 \
+--source-ranges 0.0.0.0/0 --target-tags frontend
+
 
 
 #Git
