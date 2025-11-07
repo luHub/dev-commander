@@ -1,11 +1,3 @@
 # GCP Troubleshooting/Checking
 
-# IAM 
-# GKE 
-## Check Kubernetes Service Account
--
--
-
-
-# Secret Manager 
-  
+IPADDRESS=$(gcloud compute forwarding-rules describe www-rule --region us-central1 --format="json" | jq -r .IPAddress)
