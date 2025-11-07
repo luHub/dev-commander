@@ -20,6 +20,8 @@ docker container ps
 docker image prune
 
 #GCP
+gcloud auth list
+gcloud config list project
 gcloud auth application-default login
 gcloud auth login
 gcloud init
@@ -53,9 +55,6 @@ git stash
 git reset --hard [origin/remote_branch]
 git cherry-pick [commit_id]
 git cherry-pick --abort 
-
-#Google Cloud
-gcloud auth list
 
 #Java
 java --version
