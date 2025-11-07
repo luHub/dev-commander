@@ -40,9 +40,9 @@ gcloud compute instances create [name] \
       apt-get install apache2 -y \
       service apache2 restart \
       echo "<h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
-
 gcloud compute firewall-rules create www-firewall-network-lb \
     --target-tags network-lb-tag --allow tcp:80
+gcloud compute instances list
 
 #Git
 git branch -d [local_branch]
