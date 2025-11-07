@@ -1,3 +1,5 @@
 # GCP Troubleshooting/Checking
 
 IPADDRESS=$(gcloud compute forwarding-rules describe www-rule --region us-central1 --format="json" | jq -r .IPAddress)
+
+while true; do curl -m1 $IPADDRESS; done
