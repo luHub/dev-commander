@@ -57,6 +57,9 @@ gcloud compute forwarding-rules create www-rule \
     --target-pool www-pool
 gcloud compute forwarding-rules describe www-rule --region us-central1
 
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-f
+gcloud compute instances list
 
 #Git
 git branch -d [local_branch]
