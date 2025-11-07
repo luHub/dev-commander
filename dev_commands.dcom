@@ -29,7 +29,7 @@ gcloud init
 gcloud info
 gcloud container clusters list
 gcloud components install kubectl
-  gcloud compute instances create [name] \
+gcloud compute instances create [name] \
     --zone=[zone] \
     --tags=[network-tag] \
     --machine-type=[machine_type] \
@@ -40,6 +40,9 @@ gcloud components install kubectl
       apt-get install apache2 -y \
       service apache2 restart \
       echo "<h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
+
+gcloud compute firewall-rules create www-firewall-network-lb \
+    --target-tags network-lb-tag --allow tcp:80
 
 #Git
 git branch -d [local_branch]
