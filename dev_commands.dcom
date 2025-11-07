@@ -22,12 +22,15 @@ docker image prune
 #GCP
 gcloud auth list
 gcloud config list project
+gcloud config set compute/zone us-central1-a
 gcloud auth application-default login
 gcloud auth login
 gcloud init
 gcloud info
 gcloud container clusters list
 gcloud components install kubectl
+
+
 
 #Git
 git branch -d [local_branch]
