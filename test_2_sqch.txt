@@ -1,0 +1,65 @@
+    1  clear
+    2  export BUCKET_NAME_1=qwiklabs-gcp-00-83c76c5992f6-bucket
+    3  echo $BUCKET_NAME_1
+    4  curl https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/ClusterSetup.html > setup.html
+    5  cp setup.html setup2.html
+    6  cp setup.html setup3.html
+    7  gcloud storage cp setup.html gs://$BUCKET_NAME_1/
+    8  gsutil acl get gs://$BUCKET_NAME_1/setup.html  > acl.txt
+    9  cat acl.txt
+   10  gsutil acl set private gs://$BUCKET_NAME_1/setup.html
+   11  gsutil acl get gs://$BUCKET_NAME_1/setup.html  > acl2.txt
+   12  cat acl2.txt
+   13  gsutil acl ch -u AllUsers:R gs://$BUCKET_NAME_1/setup.html
+   14  gsutil acl get gs://$BUCKET_NAME_1/setup.html  > acl3.txt
+   15  cat acl3.txt
+   16  rm setup.html
+   17  ls
+   18  gcloud storage cp gs://$BUCKET_NAME_1/setup.html setup.html
+   19  python3 -c 'import base64; import os; print(base64.encodebytes(os.urandom(32)))'
+   20  ls -al
+   21  nano .boto
+   22  vim .boto
+   23  ls -la
+   24  ls
+   25  gsutil config -n
+   26  vim .boto 
+   27  python3 -c 'import base64; import os; print(base64.encodebytes(os.urandom(32)))'
+   28  vim .boto 
+   29  gsutil cp setup2.html gs://$BUCKET_NAME_1/
+   30  gsutil cp setup3.html gs://$BUCKET_NAME_1/
+   31  rm setup*
+   32  gsutil cp gs://$BUCKET_NAME_1/setup* ./
+   33  cat setup.html
+   34  cat setup2.html
+   35  cat setup3.html
+   36  vim .boto 
+   37  python3 -c 'import base64; import os; print(base64.encodebytes(os.urandom(32)))'
+   38  vim .boto 
+   39  gsutil rewrite -k gs://$BUCKET_NAME_1/setup2.html
+   40  vim .boto 
+   41  gsutil rewrite -k gs://$BUCKET_NAME_1/setup2.html
+   42  vim .boto 
+   43  gsutil cp gs://$BUCKET_NAME_1/setup2.html recover2.html
+   44  gsutil cp gs://$BUCKET_NAME_1/setup3.html recover3.html
+   45  gsutil lifecycle get gs://$BUCKET_NAME_1
+   46  vim life.json
+   47  gsutil lifecycle set life.json gs://$BUCKET_NAME_1
+   48  gsutil lifecycle get gs://$BUCKET_NAME_1
+   49  gsutil versioning get gs://$BUCKET_NAME_1
+   50  gsutil versioning set on gs://$BUCKET_NAME_1
+   51  gsutil versioning get gs://$BUCKET_NAME_1
+   52  ls -al setup.html
+   53  vim setup.html
+   54  gcloud storage cp -v setup.html gs://$BUCKET_NAME_1
+   55  vim setup.html
+   56  gcloud storage cp -v setup.html gs://$BUCKET_NAME_1
+   57  gcloud storage ls -a gs://$BUCKET_NAME_1/setup.html
+   58  export VERSION_NAME=gs://qwiklabs-gcp-00-83c76c5992f6-bucket/setup.html#1764718149757293
+   59  gcloud storage cp $VERSION_NAME recovered.txt
+   60  mkdir firstlevel
+   61  mkdir ./firstlevel/secondlevel
+   62  cp setup.html firstlevel
+   63  cp setup.html firstlevel/secondlevel
+   64  gsutil rsync -r ./firstlevel gs://$BUCKET_NAME_1/firstlevel
+   65  gcloud storage ls -r gs://$BUCKET_NAME_1/firstlevel
