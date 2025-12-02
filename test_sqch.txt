@@ -1,0 +1,51 @@
+    1  celar
+    2  clear
+    3  gcloud auth list
+    4  gcloud config list project
+    5  gcloud container clusters get-credentials hello-demo-cluster --zone us-central1-c
+    6  kubectl scale deployment hello-server --replicas=2
+    7  gcloud container clusters resize hello-demo-cluster --node-pool my-node-pool     --num-nodes 3 --zone us-central1-c
+    8  gcloud container node-pools create larger-pool   --cluster=hello-demo-cluster   --machine-type=e2-standard-2   --num-nodes=1   --zone=us-central1-c
+    9  for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=my-node-pool -o=name); do   kubectl cordon "$node"; done
+   10  for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=my-node-pool -o=name); do   kubectl drain --force --ignore-daemonsets --delete-emptydir-data --grace-period=10 "$node"; done
+   11  kubectl get pods -o=wide
+   12  gcloud container node-pools delete my-node-pool --cluster hello-demo-cluster --zone us-central1-c
+   13  gcloud container clusters create regional-demo --region=us-central1 --num-nodes=1
+   14  cat << EOF > pod-1.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  labels:
+    security: demo
+spec:
+  containers:
+  - name: container-1
+    image: wbitt/network-multitool
+EOF
+
+   15  kubectl apply -f pod-1.yaml
+   16  cat << EOF > pod-2.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-2
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: security
+            operator: In
+            values:
+            - demo
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: container-2
+    image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+EOF
+
+   17  kubectl apply -f pod-2.yaml
+   18  kubectl get pod pod-1 pod-2 --output wide
+   19  kubectl exec -it pod-1 -- sh
