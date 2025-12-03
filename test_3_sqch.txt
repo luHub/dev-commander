@@ -1,0 +1,16 @@
+   1  gcloud storage buckets create gs://qwiklabs-gcp-02-a57eb1e9c826-bucket
+    2  gcloud storage buckets create gs://qwiklabs-gcp-02-a57eb1e9c826-bucket-2
+    3  gcloud storage cp map.jpg  gs://qwiklabs-gcp-02-a57eb1e9c826-bucket
+    4  gcloud compute regions list
+    5  INFRACLASS_REGION=us-west2
+    6  echo $INFRACLASS_REGION
+    7  mkdir infraclass
+    8  touch infraclass/config
+    9  echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+   10  INFRACLASS_PROJECT_ID=qwiklabs-gcp-02-a57eb1e9c826
+   11  echo INFRACLASS_PROJECT_ID=$INFRACLASS_PROJECT_ID >> ~/infraclass/config
+   12  source infraclass/config
+   13  echo $INFRACLASS_PROJECT_ID
+   14  vim .profile
+   15  clear
+   16  history
