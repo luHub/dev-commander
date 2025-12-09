@@ -1,0 +1,12 @@
+ 1  gcloud services enable iap.googleapis.com networkmanagement.googleapis.com
+    2  gcloud compute ssh mynet-us-vm --zone=us-east1-c --tunnel-through-iap 
+    3  gcloud compute ssh mynet-notus-vm --zone=europe-west1-c --tunnel-through-iap 
+    4  gcloud compute networks create privatenet --subnet-mode=custom
+    5  gcloud compute networks subnets create privatesubnet-us --network=privatenet --region=us-east1 --range=172.16.0.0/24
+    6  gcloud compute networks subnets create privatesubnet-notus --network=privatenet --region=europe-west1 --range=172.20.0.0/20
+    7  gcloud compute networks list
+    8  gcloud compute networks subnets list --sort-by=NETWORK
+    9  gcloud compute firewall-rules create privatenet-allow-icmp-ssh-rdp --direction=INGRESS --priority=1000 --network=privatenet --action=ALLOW --rules=icmp,tcp:22,tcp:3389 --source-ranges=0.0.0.0/0
+   10  gcloud compute firewall-rules list --sort-by=NETWORK
+   11  gcloud compute instances create privatenet-us-vm --zone=us-east1-c --machine-type=e2-micro --subnet=privatesubnet-us --image-family=debian-12 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=privatenet-us-vm
+   12  gcloud compute instances list --sort-by=ZONE
