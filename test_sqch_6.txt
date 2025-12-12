@@ -1,0 +1,14 @@
+   1  gcloud config set compute/zone us-east4-b
+    2  gcloud container clusters list
+    3  gcloud container clusters get-credentials day2-ops --region us-east4
+    4  kubectl get nodes
+    5  git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+    6  cd microservices-demo
+    7  kubectl apply -f release/kubernetes-manifests.yaml
+    8  kubectl get pods
+    9  export EXTERNAL_IP=$(kubectl get service frontend-external -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+   10  echo $EXTERNAL_IP
+   11  export EXTERNAL_IP=$(kubectl get service frontend-external -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+   12  echo $EXTERNAL_IP
+   13  curl -o /dev/null -s -w "%{http_code}\n"  http://${EXTERNAL_IP}
+   14  history
