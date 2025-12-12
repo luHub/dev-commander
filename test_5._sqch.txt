@@ -1,0 +1,8 @@
+  1  git clone https://github.com/haggman/HelloLoggingNodeJS.git
+    2  cd HelloLoggingNodeJS
+    3  edit index.js
+    4  gcloud app create --region=us-west1
+    5  gcloud app deploy
+    6  edit index.js
+    7  gcloud app deploy
+    8  history
