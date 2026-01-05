@@ -1,0 +1,183 @@
+student_00_ea58675c7afe@cloudshell:~ (qwiklabs-gcp-03-69d5188efa19)$ history
+    1  gcloud auth list
+    2  gcloud config list project
+    3  gcloud config set compute/zone us-central1-c
+    4  gcloud container clusters create test-cluster --num-nodes=3  --enable-ip-alias
+    5  cat << EOF > gb_frontend_pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: gb-frontend
+  name: gb-frontend
+spec:
+    containers:
+    - name: gb-frontend
+      image: gcr.io/google-samples/gb-frontend-amd64:v5
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+      ports:
+      - containerPort: 80
+EOF
+
+    6  kubectl apply -f gb_frontend_pod.yaml
+    7  clear
+    8  cat << EOF > gb_frontend_cluster_ip.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gb-frontend-svc
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  type: ClusterIP
+  selector:
+    app: gb-frontend
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+EOF
+
+    9  kubectl apply -f gb_frontend_cluster_ip.yaml
+   10  kubectl apply -f gb_frontend_ingress.yaml
+   11  cat << EOF > gb_frontend_ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gb-frontend-ingress
+spec:
+  defaultBackend:
+    service:
+      name: gb-frontend-svc
+      port:
+        number: 80
+EOF
+
+   12  kubectl apply -f gb_frontend_ingress.yaml
+   13  BACKEND_SERVICE=$(gcloud compute backend-services list | grep NAME | cut -d ' ' -f2)
+   14  gcloud compute backend-services get-health $BACKEND_SERVICE --global
+   15  kubectl get ingress gb-frontend-ingress
+   16  gsutil -m cp -r gs://spls/gsp769/locust-image .
+   17  gcloud builds submit     --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/locust-tasks:latest locust-image
+   18  gcloud builds submit     --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/locust-tasks:latest locust-image
+   19  gcloud container images list
+   20  gsutil cp gs://spls/gsp769/locust_deploy_v2.yaml .
+   21  sed 's/${GOOGLE_CLOUD_PROJECT}/'$GOOGLE_CLOUD_PROJECT'/g' locust_deploy_v2.yaml | kubectl apply -f -
+   22  kubectl get service locust-main
+   23  clear
+   24  cat << EOF > liveness-demo.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    demo: liveness-probe
+  name: liveness-demo-pod
+spec:
+  containers:
+  - name: liveness-demo-pod
+    image: quay.io/centos/centos:stream9
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/alive; sleep infinity
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/alive
+      initialDelaySeconds: 5
+      periodSeconds: 10
+EOF
+
+   25  kubectl apply -f liveness-demo.yaml
+   26  kubectl describe pod liveness-demo-pod
+   27  kubectl exec liveness-demo-pod -- rm /tmp/alive
+   28  kubectl describe pod liveness-demo-pod
+   29  cat << EOF > readiness-demo.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    demo: readiness-probe
+  name: readiness-demo-pod
+spec:
+  containers:
+  - name: readiness-demo-pod
+    image: nginx
+    ports:
+    - containerPort: 80
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthz
+      initialDelaySeconds: 5
+      periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: readiness-demo-svc
+  labels:
+    demo: readiness-probe
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    demo: readiness-probe
+EOF
+
+   30  kubectl apply -f readiness-demo.yaml
+   31  kubectl get service readiness-demo-svc
+   32  kubectl describe pod readiness-demo-pod
+   33  kubectl exec readiness-demo-pod -- touch /tmp/healthz
+   34  kubectl describe pod readiness-demo-pod | grep ^Conditions -A 5
+   35  kubectl delete pod gb-frontend
+   36  cat << EOF > gb_frontend_deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gb-frontend
+  labels:
+    run: gb-frontend
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      run: gb-frontend
+  template:
+    metadata:
+      labels:
+        run: gb-frontend
+    spec:
+      containers:
+        - name: gb-frontend
+          image: gcr.io/google-samples/gb-frontend-amd64:v5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          ports:
+            - containerPort: 80
+              protocol: TCP
+EOF
+
+   37  kubectl apply -f gb_frontend_deployment.yaml
+   38  clear
+   39  history
+   40  clear
+   41  for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=default-pool -o=name); do   kubectl drain --force --ignore-daemonsets --grace-period=10 "$node"; done
+   42  kubectl describe deployment gb-frontend | grep ^Replicas
+   43  for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=default-pool -o=name); do   kubectl uncordon "$node"; done
+   44  kubectl describe deployment gb-frontend | grep ^Replicas
+   45  kubectl create poddisruptionbudget gb-pdb --selector run=gb-frontend --min-available 4
+   46  for node in $(kubectl get nodes -l cloud.google.com/gke-nodepool=default-pool -o=name); do   kubectl drain --timeout=30s --ignore-daemonsets --grace-period=10 "$node"; done
+   47  kubectl describe deployment gb-frontend | grep ^Replicas
+   48  clear
+   49  history
