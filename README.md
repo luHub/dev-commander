@@ -66,14 +66,14 @@ Just place the cal.dcal file on the same folder of the dev_calendar.perl script
 ```
 
 
-# Constellation PoC
+# SQCH PoC
 
-All good things in life start with a PoC, not because we are lazy but because we think that if you don't write code is just.
+All good things in life start with a PoC, not because we are lazy but because we think that if you don't write code is just bs.
 So this one works as follows. Over time you end up typing commands to a console, over time you do the same ones, over and over. 
-So const.sh is here to PoC a way to link history to a "constellation" of commands.
+So dev_sqch.perl (sqch squanching) is here to PoC a way to link history to a "constellation" of commands.
 
 ```
-history | <Poc>
+history | dev_sqch.perl
 ```
 
 
