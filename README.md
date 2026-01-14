@@ -68,9 +68,11 @@ Just place the cal.dcal file on the same folder of the dev_calendar.perl script
 
 # SQCH PoC
 
+## Squanch your code but do not squanch at parties!
+
 All good things in life start with a PoC, not because we are lazy but because we think that if you don't write code is just bs.
 So this one works as follows. Over time you end up typing commands to a console, over time you do the same ones, over and over. 
-So dev_sqch.perl (sqch squanching) is here to PoC a way to link history to a "constellation" of commands.
+So dev_sqch.perl (sqch squanching) is here to PoC a way to link history to a "squanched" sets of commands.
 
 ```
 history | dev_sqch.perl
