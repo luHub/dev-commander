@@ -281,6 +281,9 @@ terraform workspace select [name]
 TF_LOG=DEBUG TF_LOG_PATH=[path] terraform plan
 terraform fmt
 
+#usermod
+sudo usermod --add-subgids 19000000-37999999 [user]
+
 #sqlite
 sqlite [DB_FILE]
 sqlite >> .tables
