@@ -16,3 +16,13 @@
 ### Executable file formats
 ### Memory Managemen Options
 ### Networking Support
+### Device Drivers
+### File Systems
+### Security Options
+### Cryptoghaphic API
+### Library Routines
+### Kernel Hacking
+
+
+### Note:
+This list will change in the future and the intended purpouse is not to maintain it but to vaguely understand most of the options in 2026. 
