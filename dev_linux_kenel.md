@@ -1,4 +1,4 @@
-# The useless list of my anotations 
+# Linux Kernel menu config (~2026)
 
 ## Menu Config
 
