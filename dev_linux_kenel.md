@@ -9,7 +9,7 @@
 ### Power management and ACPIO options
 
 ACPI: Advanced Configuration and Power Interface
-
+Links:https://docs.kernel.org/driver-api/acpi/linuxized-acpica.html
 
 
 ### BUS Options
