@@ -7,6 +7,11 @@
 ### Processor types and features
 ### Mitigations for CPU vulnerabilities
 ### Power management and ACPIO options
+
+ACPIO: Advanced Configuration and Power Interface
+
+
+
 ### BUS Options
 ### Binary Emulations
 ### Virtuialization
