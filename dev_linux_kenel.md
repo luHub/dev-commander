@@ -8,7 +8,7 @@
 ### Mitigations for CPU vulnerabilities
 ### Power management and ACPIO options
 
-ACPIO: Advanced Configuration and Power Interface
+ACPI: Advanced Configuration and Power Interface
 
 
 
