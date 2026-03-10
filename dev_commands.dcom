@@ -227,6 +227,9 @@ dmesg
 dmesg | grep -i [driver_name]
 modprobe -r iwlwifi
 modprobe iwlwifi
+lspci -nnk | grep -i network -A3
+
+
 
 #Linux Files
 cat [file1] [file2] >> file3 
