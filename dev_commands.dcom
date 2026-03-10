@@ -224,6 +224,9 @@ export [name]=[value]
 #Linux Drivers
 lsmod
 dmesg
+dmesg | grep -i [driver_name]
+modprobe -r iwlwifi
+modprobe iwlwifi
 
 #Linux Files
 cat [file1] [file2] >> file3 
