@@ -1,0 +1,15 @@
+    2  gcloud storage buckets create -l us-east1 gs://$DEVSHELL_PROJECT_ID
+    3  echo "this is a sample file" > sample.txt
+    4  gcloud storage cp sample.txt gs://$DEVSHELL_PROJECT_ID
+    5  nano role.yaml
+    6  vim role.yaml
+    7  gcloud iam roles create app_viewer --project $DEVSHELL_PROJECT_ID --file role.yaml
+    8  gcloud iam roles list --project $DEVSHELL_PROJECT_ID
+    9  gcloud iam roles describe app_viewer --project $DEVSHELL_PROJECT_ID
+   10  vim  update-role.yaml
+   11  gcloud iam roles describe app_viewer --project $DEVSHELL_PROJECT_ID >> update_role.yaml
+   12  vim update_role.yaml 
+   13  gcloud iam roles describe app_viewer --project $DEVSHELL_PROJECT_ID >> update_role.yaml
+   14  vim update_role.yaml 
+   15  gcloud iam roles update app_viewer --project $DEVSHELL_PROJECT_ID --file update-role.yaml
+   16  gcloud iam roles update app_viewer --project $DEVSHELL_PROJECT_ID --file update_role.yaml
