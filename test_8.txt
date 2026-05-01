@@ -1,0 +1,13 @@
+tudent_00_7b28fd532b86@cloudshell:~ (qwiklabs-gcp-03-3bc06fefa43e)$ history
+    1  gcloud auth list
+    2  gcloud config list project
+    3  gcloud services disable dataflow.googleapis.com --project 
+    4  gcloud services disable dataflow.googleapis.com --project qwiklabs-gcp-03-3bc06fefa43e --force
+    5  gcloud services enable dataflow.googleapis.com --project qwiklabs-gcp-03-3bc06fefa43e
+    6  bq mk taxirides
+    7  bq mk --time_partitioning_field timestamp --schema ride_id:string,point_idx:integer,latitude:float,longitude:float,timestamp:timestamp,meter_reading:float,meter_increment:float,ride_status:string,passenger_count:integer -t taxirides.realtime
+    8  export BUCKET_NAME=qwiklabs-gcp-03-3bc06fefa43e
+    9  gsutil mb gs://$BUCKET_NAME/
+   10  history
+   11  gcloud dataflow jobs run iotflow     --gcs-location gs://dataflow-templates-europe-west3/latest/PubSub_to_BigQuery     --region europe-west3     --worker-machine-type e2-medium     --staging-location gs://qwiklabs-gcp-03-3bc06fefa43e/temp     --parameters inputTopic=projects/pubsub-public-data/topics/taxirides-realtime,outputTableSpec=qwiklabs-gcp-03-3bc06fefa43e:taxirides.realtime
+   12  history
