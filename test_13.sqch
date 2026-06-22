@@ -1,0 +1,25 @@
+    1  gcloud iam service-accounts create quickstart
+    2  gcloud auth list
+    3  gcloud config list project
+    4  export PROJECT_ID=qwiklabs-gcp-01-9cb15f6175e4
+    5  echo $PROJECT_ID
+    6  gcloud iam service-accounts keys create key.json --iam-account quickstart@$PROJECT_ID.iam.gserviceaccount.com
+    7  gcloud auth activate-service-account --key-file key.json
+    8  gcloud auth print-access-token
+    9  gcloud auth print-access-token
+   10  cat > request.json <<EOF
+{
+   "inputUri":"gs://spls/gsp154/video/train.mp4",
+   "features": [
+       "LABEL_DETECTION"
+   ]
+}
+EOF
+
+   11  curl -s -H 'Content-Type: application/json'     -H 'Authorization: Bearer '$(gcloud auth print-access-token)''     'https://videointelligence.googleapis.com/v1/videos:annotate'     -d @request.json
+   12  export PROJECTS=916224340625
+   13  export LOCATIONS=us-west1
+   14  export OPERATIONS=18130734873062250646
+   15  curl -s -H 'Content-Type: application/json'     -H 'Authorization: Bearer '$(gcloud auth print-access-token)''     'https://videointelligence.googleapis.com/v1/projects/$PROJECTS/locations/$LOCATIONS/operations/$OPERATIONS'
+   16  curl -s -H 'Content-Type: application/json'     -H 'Authorization: Bearer '$(gcloud auth print-access-token)''     'https://videointelligence.googleapis.com/v1/projects/916224340625/locations/us-west1/operations/18130734873062250646'
+   17  history
