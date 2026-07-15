@@ -12,6 +12,7 @@ aws ecs list-clusters --region [aws_region]
 aws ecs list-tasks --region [aws_region]  --cluster [aws_ecs_cluster] 
 
 
+
 #Docker
 sudo service docker start
 docker run
@@ -279,6 +280,7 @@ podman pull [repository]
 systemctl --user status  podman.socket
 systemctl --user status  podman.service
 
+podman pull docker.io/localstack/localstack:3.8
 
 
 #Terraform
