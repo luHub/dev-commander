@@ -26,4 +26,4 @@ for dir in */; do
     fi
 done
 
-echo "✅ Done!"
+echo "Done!"
